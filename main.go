@@ -7,8 +7,8 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"time"
 	"strconv"
+	"time"
 	//"fmt"
 
 	"github.com/go-chi/chi"
@@ -92,16 +92,16 @@ func main() {
 
 	router.Mount("/v1", v1Router)
 	srv := &http.Server{
-		Addr:    ":" + port,
-		Handler: router,
-		ReadHeaderTimeout: 2 * time.Second, 
+		Addr:              ":" + port,
+		Handler:           router,
+		ReadHeaderTimeout: 2 * time.Second,
 		ReadTimeout:       5 * time.Second,
 		WriteTimeout:      10 * time.Second,
 		IdleTimeout:       30 * time.Second,
 	}
-	
+
 	if _, err := strconv.Atoi(port); err != nil {
-    	log.Fatal("invalid port")
+		log.Fatal("invalid port")
 	}
 	// #nosec G706
 	log.Printf("Serving on port: %s", port)
