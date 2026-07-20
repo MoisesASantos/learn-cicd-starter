@@ -58,7 +58,7 @@ func TestGetAPIKey(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			headers := tt.setupHeaders()
-			
+
 			gotKey, gotErr := GetAPIKey(headers)
 
 			// Valida o retorno da chave
